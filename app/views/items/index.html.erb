@@ -12,16 +12,19 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4">
+      <h2>Item</h2>
     	<% @items.each do |item| %>
             <p><%= item.title %></p>
         <% end %>
     </div>
     <div class="col-md-4">
+      <h2>Descrição</h2>
     	<% @items.each do |item| %>
             <p><%= item.description %></p>
         <% end %>
     </div>
     <div class="col-md-4">
+      <h2>Preço</h2>
     	<% @items.each do |item| %>
             <p>R$ <%=number_with_precision(item.price, :precision => 2) %></p>
         <% end %>
