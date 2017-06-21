@@ -14,4 +14,9 @@ class CartsController < ApplicationController
 		@cart = merged_cart
 		render 'carts/index' #render pro view do carrinho index
 	end
+
+	def destroy
+		@cart = merged_cart
+		byebug
+	end
 end
