@@ -1,13 +1,16 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <p><%= item.title %></p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <p><%= item.description %></p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <p>R$ <%= number_with_precision(item.price, :precision => 2) %></p>
+    </div>
+    <div class="col-md-3">
+        <p><%= link_to "Adicionar ao carrinho", add_cart_path(item), class:'btn btn-default'%></p>
     </div>
 <div>
 

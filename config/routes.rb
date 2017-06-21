@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   end
   resources :items
   root 'categories#index'
+  get 'carts/add/:item_id' => 'carts#add', as: :add_cart
 end
