@@ -15,7 +15,7 @@
       <td><%= @items.find(params[:item_id]).price %></td>
       <td><%= cart[:quantity] %></td>
       <td><%= @items.find(params[:item_id]).price * cart[:quantity] %></td>
-      <td><%= link_to 'Remover', destroy_cart_path %></td> 
+      <td><%= link_to 'Remover', destroy_cart_path(:item_id) %></td> 
     </tr>
   <% end  #adicionar link para remover depois%>
 </table>
