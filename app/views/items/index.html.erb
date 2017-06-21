@@ -13,29 +13,34 @@
   <div class="row">
     <div class="col-md-3">
       <h2>Item</h2>
-    	<% @items.each do |item| %>
-            <p><%= item.title %></p>
-        <% end %>
     </div>
     <div class="col-md-3">
       <h2>Descrição</h2>
-    	<% @items.each do |item| %>
-            <p><%= item.description %></p>
-        <% end %>
     </div>
     <div class="col-md-3">
       <h2>Preço</h2>
-    	<% @items.each do |item| %>
-            <p>R$ <%=number_with_precision(item.price, :precision => 2) %></p>
-        <% end %>
     </div>    
     <div class="col-md-3">
       <h2>Adicionar ao carrinho</h2>
-      <% @items.each do |item| %>
-            <p><%= link_to "Adicionar ao carrinho", add_cart_path(item), class:'btn btn-default'%></p>
-        <% end %>
     </div>
-  </div>  
+  </div>
+  <% @items.each do |item| %>
+  <div class="row">
+    <div class="col-md-3">
+      <p><%= item.title %></p>
+    </div>
+    <div class="col-md-3">
+      <p><%= item.description %></p>
+    </div>
+    <div class="col-md-3">
+      <p>R$ <%=number_with_precision(item.price, :precision => 2) %></p>
+    </div>
+    <div class="col-md-3">
+      <p><%= link_to 'Adicionar ao carrinho', add_cart_path(item), class:'btn btn-info btn-lg'%>
+      </p>
+    </div>
+  </div> 
+  <% end %> 
 <div>
 
 <div class="container-fluid">
