@@ -17,9 +17,8 @@ class CartsController < ApplicationController
 
 	def destroy
 		@cart = merge_cart
-		@item = Item.find(params[:item_id])
-		@cart.delete_if {|cart| cart[:id] == @item.id}
-		byebug
+		@cart.delete_if {|cart| cart[:id] == params[:item_id]}
+		session[:cart] = @cart
 		redirect_to carts_path_url
 	end
 
