@@ -15,9 +15,9 @@
       <td><%= item[0].price %></td>
       <td><%= item[1] %></td>
       <td><%= item[0].price * item[1] %></td> 
-      <td><%= link_to 'Remover', destroy_cart_path(item[0].id) %></td> 
+      <td><%= link_to 'Remover do Carrinho', destroy_cart_path(item[0].id) %></td> 
     </tr>
-  <% end  #adicionar link para remover depois%>
+  <% end%>
 </table>
 
 <p><%= link_to "Todas as opções", {controller: 'items'}, class:'btn btn-default'%></p>
