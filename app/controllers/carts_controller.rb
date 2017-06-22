@@ -7,7 +7,8 @@ class CartsController < ApplicationController
 	def add
 		@items = Item.all	#dps do render view do carriho index pode retirar
 		current_cart << {id: params[:item_id], quantity: 1}
-		@cart = merge_cart
+		session[:cart] = merge_cart
+		@cart = session[:cart]
 		render 'carts/index' #render pro view do carrinho index
 	end
 
