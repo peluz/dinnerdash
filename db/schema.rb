@@ -21,16 +21,11 @@ ActiveRecord::Schema.define(version: 20170615143715) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories_items", id: false, force: :cascade do |t|
+  create_table "categories_items", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "item_id", null: false
-  end
-
-  create_table "categories_itens", id: :bigint, default: nil, force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.bigint "iten_id", null: false
-    t.index ["category_id", "iten_id"], name: "index_categories_itens_on_category_id_and_iten_id"
-    t.index ["iten_id", "category_id"], name: "index_categories_itens_on_iten_id_and_category_id"
+    t.index ["category_id", "item_id"], name: "index_categories_items_on_category_id_and_item_id"
+    t.index ["item_id", "category_id"], name: "index_categories_items_on_item_id_and_category_id"
   end
 
   create_table "items", force: :cascade do |t|

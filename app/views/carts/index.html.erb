@@ -1,0 +1,21 @@
+<h1>Your Cart</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Subtotal</th>
+    <th>Remove from Cart</th>
+  </tr>
+ 
+  <%@cart.each do |cart| %>
+    <tr>
+      <td><%= @items.find(params[:item_id]).title %></td>
+      <td><%= @items.find(params[:item_id]).price %></td>
+      <td><%= cart[:quantity] %></td>
+      <td><%= @items.find(params[:item_id]).price * cart[:quantity] %></td>
+      <td><%= link_to 'Remover', destroy_cart_path(:item_id) %></td> 
+    </tr>
+  <% end  #adicionar link para remover depois%>
+</table>

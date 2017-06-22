@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
   	session[:cart] ||= []
   	session[:cart].map! {|x| x.symbolize_keys!}
   end
+
 end
