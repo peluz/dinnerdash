@@ -21,12 +21,20 @@ class CartsController < ApplicationController
 		session[:cart] = @cart
 		redirect_to carts_path_url
 	end
-
+	def minus
+		@items = Item.all
+		unless current_cart.include?({id: params[:item_id], quantity: 1})
+			current_cart << {id: params[:item_id], quantity: -1}
+			session[:cart] = merge_cart
+			@cart = session[:cart]
+		end
+		redirect_to carts_path_url	 	
+	end	
 	private
 
 		def merge_cart
 			merged_cart = current_cart.group_by {|h1| h1[:id]}.map do |k,v|
 				{:id => k, :quantity => v.map { |h2| h2[:quantity]}.sum}
-				end		
+			end		
 		end
 end

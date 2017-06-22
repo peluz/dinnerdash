@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'carts/add/:item_id' => 'carts#add', as: :add_cart
   get 'carts/destroy/:item_id' => 'carts#destroy', as: :destroy_cart
   get 'carts/index' => 'carts#index', as: :carts_path
+  get 'carts/minus/:item_id' => 'carts#minus', as: :minus_cart
 end
