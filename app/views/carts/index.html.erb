@@ -1,25 +1,46 @@
-<h1>Your Cart</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="page-header">
+        <h1>Carrinho</h1>
+      </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Subtotal</th>
-    <th>Remove from Cart</th>
-  </tr>
- 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"><p>Nome</p></div>
+    <div class="col-md-2"><p>Preço</p></div>
+    <div class="col-md-2"><p>Quantidade</p></div>
+    <div class="col-md-2"><p>Subtotal</p></div>
+    <div class="col-md-2"><p>Mudar quantidade</p></div>
+    <div class="col-md-2"><p>Remover</p></div>
+  </div>
+<div>
+
+<div class="container-fluid">
   <%@items.each do |item| %>
-    <tr>
-      <td><%= item[0].title %></td>
-      <td><%= item[0].price %></td>
-      <td><%= item[1] %></td>
-      <td><%= item[0].price * item[1] %></td> 
-      <td><%= link_to 'Remover do Carrinho', destroy_cart_path(item[0].id) %></td> 
-      <td><%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default'%></td>
-      <td><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default'%></td>
-    </tr>
+  <div class="row">
+    <div class="col-md-2"><p><%= item[0].title %></p></div>
+    <div class="col-md-2"><p><%= item[0].price %></p></div>
+    <div class="col-md-2"><p><%= item[1] %></p></div>
+    <div class="col-md-2"><p><%= item[0].price * item[1] %></p></div>
+    <div class="col-md-2"><p><%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default'%></p></div>
+    <div class="col-md-2"><p><%= link_to 'X', destroy_cart_path(item[0].id), class:'btn btn-info btn-lg' %></p></div>
+  </div>
   <% end%>
-</table>
+</div>
 
-<p><%= link_to "Todas as opções", {controller: 'items'}, class:'btn btn-default'%></p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="page-header">
+        <p><%= link_to "Todas as opções", {controller: 'items'}, class:'btn btn-default'%></p>
+      </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
