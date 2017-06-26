@@ -12,7 +12,7 @@ class CartsController < ApplicationController
 		current_cart << {id: params[:item_id], quantity: 1}
 		session[:cart] = merge_cart
 		@cart = session[:cart]
-		redirect_to carts_path_url #render pro view do carrinho index
+		render json: @cart.to_json 
 	end
 
 	def destroy
@@ -27,8 +27,7 @@ class CartsController < ApplicationController
 			current_cart << {id: params[:item_id], quantity: -1}
 			session[:cart] = merge_cart
 			@cart = session[:cart]
-		end
-		redirect_to carts_path_url	 	
+		end	
 	end	
 	private
 

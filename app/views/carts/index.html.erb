@@ -27,7 +27,7 @@
     <div class="col-md-2"><p><%= item[0].price %></p></div>
     <div class="col-md-2"><p><%= item[1] %></p></div>
     <div class="col-md-2"><p><%= item[0].price * item[1] %></p></div>
-    <div class="col-md-2"><p><%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default'%></p></div>
+    <div class="col-md-2"><p><%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default add-cart-button'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default minus-cart-button'%></p></div>
     <div class="col-md-2"><p><%= link_to 'X', destroy_cart_path(item[0].id), class:'btn btn-info btn-lg' %></p></div>
   </div>
   <% end%>
