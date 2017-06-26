@@ -9,13 +9,17 @@
     <th>Remove from Cart</th>
   </tr>
  
-  <%@cart.each do |cart| %>
+  <%@items.each do |item| %>
     <tr>
-      <td><%= @items.find(params[:item_id]).title %></td>
-      <td><%= @items.find(params[:item_id]).price %></td>
-      <td><%= cart[:quantity] %></td>
-      <td><%= @items.find(params[:item_id]).price * cart[:quantity] %></td>
-      <td><%= link_to 'Remover', destroy_cart_path(:item_id) %></td> 
+      <td><%= item[0].title %></td>
+      <td><%= item[0].price %></td>
+      <td><%= item[1] %></td>
+      <td><%= item[0].price * item[1] %></td> 
+      <td><%= link_to 'Remover do Carrinho', destroy_cart_path(item[0].id) %></td> 
+      <td><%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default'%></td>
+      <td><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default'%></td>
     </tr>
-  <% end  #adicionar link para remover depois%>
+  <% end%>
 </table>
+
+<p><%= link_to "Todas as opções", {controller: 'items'}, class:'btn btn-default'%></p>
