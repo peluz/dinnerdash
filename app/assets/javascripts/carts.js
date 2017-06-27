@@ -3,7 +3,10 @@ $(.add-cart-button).click(function(){
 	$.ajax({
 		url: urlAdd,
 		type: "GET",
-		dataType: "JSON";
+		dataType: "JSON",
+		success: function(data){
+			console.log(data);
+		}
 	});
 });
 $(.minus-cart-button).click(function(){
