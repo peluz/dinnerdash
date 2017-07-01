@@ -2,5 +2,25 @@
   <h1>Dinnerdash</h1>
   <p>Suas necessidades nutricionais a apenas um clique</p>
 </div>
+>
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Bem-Vindo ao Dinner Dash</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= link_to "Criar conta", {action: "new", controller: "users"}, class: "btn btn-primary"%>
+    <% end %>
 
