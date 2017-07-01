@@ -1,37 +1,73 @@
 <div class="container-fluid">
   <div class="row">
+    <div class="col-md-8"><h1>Meu Carrinho</h1></div>
     <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <div class="page-header">
-        <h1>Carrinho</h1>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+    <% total = 0 %>
+    <% @items.each_slice(4).to_a.each do |itemrow| %>
+      <div class="row">
+        <% itemrow.each do |item| %>
+          <div class="col-md-3">
+            <div class="panel panel-default">
+              <div class="well">
+                <%= image_tag("food.jpg", :alt => "Imagem", :class => "img-responsive center-block") %>
+              </div>
+              <div class="panel-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-12">
+                    <h4><%= item[0].title %></h4>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-7">
+                      <p>Quantidade: <%= item[1] %>
+                    </div>
+                    <div class="col-md-5">
+                        <%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default btn-sm'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default btn-sm'%>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                      <p>Unidade: R$ <%= number_with_precision(item[0].price, :precision => 2) %></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <%= link_to 'Remover', destroy_cart_path(item[0].id), class:'btn btn-default btn-sm' %>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Subtotal: R$ <%= number_with_precision(item[0].price * item[1], :precision => 2) %>
+                          <% total += item[0].price*item[1] %>
+                        </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <div class="col-md-4"></div>
-  </div>
+    <% end %>
 </div>
+
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2"><p>Nome</p></div>
-    <div class="col-md-2"><p>Preço</p></div>
-    <div class="col-md-2"><p>Quantidade</p></div>
-    <div class="col-md-2"><p>Subtotal</p></div>
-    <div class="col-md-2"><p>Mudar quantidade</p></div>
-    <div class="col-md-2"><p>Remover</p></div>
+    <div class="col-md-8">
+      <h2>Total: R$ <%=  number_with_precision(total, :precision => 2)%></h2>
+    </div>
+    <div class="col-md-4">
+      <a class="btn btn-lg btn-info">Comprar</a>
+    </div>
   </div>
-<div>
-
-<div class="container-fluid">
-  <%@items.each do |item| %>
-  <div class="row">
-    <div class="col-md-2"><p><%= item[0].title %></p></div>
-    <div class="col-md-2"><p><%= item[0].price %></p></div>
-    <div class="col-md-2"><p><%= item[1] %></p></div>
-    <div class="col-md-2"><p><%= item[0].price * item[1] %></p></div>
-    <div class="col-md-2"><p><%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default'%></p></div>
-    <div class="col-md-2"><p><%= link_to 'X', destroy_cart_path(item[0].id), class:'btn btn-info btn-lg' %></p></div>
-  </div>
-  <% end%>
 </div>
+
 
 
 <div class="container-fluid">
@@ -39,7 +75,7 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
       <div class="page-header">
-        <p><%= link_to "Todas as opções", {controller: 'items'}, class:'btn btn-default'%></p>
+        <p><%= link_to "Todas as opções", {controller: 'items'}, class:'btn btn-md'%></p>
       </div>
     <div class="col-md-4"></div>
   </div>
