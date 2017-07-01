@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :categories do
   	resources :items
   end
@@ -9,5 +11,7 @@ Rails.application.routes.draw do
   get 'carts/destroy/:item_id' => 'carts#destroy', as: :destroy_cart
   get 'carts/index' => 'carts#index', as: :carts_path
   get 'carts/minus/:item_id' => 'carts#minus', as: :minus_cart
-
+  get    '/login' => 'sessions#new'
+  post   '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 end

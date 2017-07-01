@@ -5,7 +5,19 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-10"></div>
-		<div class="col-md-2"><%= link_to "Sign Up", {action: "new", controller: 'users'}, class: 'btn btn-info btn-md' %></div>
+		<div class = "col-md-2">
+			<%= link_to "Home", root_path, class: 'btn btn-info btn-md' %>
+			<%= link_to "Cart", {action: "index", controller: 'carts'}, class: 'btn btn-info btn-md' %>
+		</div>
+		<div class="col-md-8"></div>
+		<div class="col-md-2">
+			<% if logged_in? %>
+				<%= link_to "Log out", logout_path, method: :delete, class: 'btn btn-info btn-md'%>
+				<%= link_to "Profile", current_user, class: 'btn btn-info btn-md' %>
+			<% else %>
+				<%= link_to "Log In", {action: "new", controller: 'sessions'}, class: 'btn btn-info btn-md' %>
+				<%= link_to "Sign Up", {action: "new", controller: 'users'}, class: 'btn btn-info btn-md' %>
+			<% end %>
+		</div>
 	</div>
 </div>
