@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
+  get 'welcome/index'
+
   get 'sessions/new'
+
 
   resources :categories do
   	resources :items
