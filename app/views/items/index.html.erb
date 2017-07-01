@@ -24,23 +24,7 @@
       <h2>Adicionar ao carrinho</h2>
     </div>
   </div>
-  <% @items.each do |item| %>
-  <div class="row">
-    <div class="col-md-3">
-      <p><%= item.title %></p>
-    </div>
-    <div class="col-md-3">
-      <p><%= item.description %></p>
-    </div>
-    <div class="col-md-3">
-      <p>R$ <%=number_with_precision(item.price, :precision => 2) %></p>
-    </div>
-    <div class="col-md-3">
-      <p><%= link_to 'Adicionar ao carrinho', add_cart_path(item), class:'btn btn-info btn-lg'%>
-      </p>
-    </div>
-  </div> 
-  <% end %> 
+  <%= render @items %>
 <div>
 
 <div class="container-fluid">
