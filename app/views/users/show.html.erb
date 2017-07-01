@@ -6,6 +6,11 @@
         <%= @user.username %>
       </h1>
       <p>How are you today?</p>
+      <% if admin? %>
+      	<p>Você é um admin, parabéns!</p>
+      <% else %>
+      	<p>Você não é um admin, booo!!</p>
+      <% end %>
     </section>
   </aside>
 </div>
