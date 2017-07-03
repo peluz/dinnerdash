@@ -27,7 +27,8 @@ class CartsController < ApplicationController
 			current_cart << {id: params[:item_id], quantity: -1}
 			session[:cart] = merge_cart
 			@cart = session[:cart]
-		end	
+		end
+		render json: @cart.to_json	
 	end	
 	private
 

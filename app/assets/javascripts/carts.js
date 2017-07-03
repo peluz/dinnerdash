@@ -1,22 +1,29 @@
-$(.add-cart-button).click(function(){
-	var urlAdd = $(this).attr("href");
-	$.ajax({
-		url: urlAdd,
-		type: "GET",
-		dataType: "JSON",
-		success: function(data){
-			console.log(data);
-		}
+$(document).ready(function() {
+	$('.add-cart-button').click(function(event){
+		event.preventDefault();
+		
+		var urlAdd = $(this).attr("href");
+		$.ajax({
+			url: urlAdd,
+			method: "GET",
+			dataType: "json",
+			success: function(data){
+				$('#quant').html(data);
+			}
+		});
 	});
 });
-$(.minus-cart-button).click(function(){
-	var urlMinus = $(this).attr("href");
-	$.ajax({
-		url: urlMinus,
-		type: "GET",
-		dataType: "JSON",
-		success: function(data){
-			console.log(data);
-		}
-	});
+$(document).ready(function(){
+	$('.minus-cart-button').click(function(event){
+		event.preventDefault();
+		var urlMinus = $(this).attr("href");
+		$.ajax({
+			url: urlMinus,
+			type: "GET",
+			dataType: "JSON",
+			success: function(data){
+				console.log(data);
+			}
+		});
+	});	
 });
