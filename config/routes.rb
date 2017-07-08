@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :categories do
   	resources :items
   end
-  resources :users
   resources :items
+  resources :users
   root 'welcome#index'
   get 'carts/add/:item_id' => 'carts#add', as: :add_cart
   get 'carts/destroy/:item_id' => 'carts#destroy', as: :destroy_cart
@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get    '/login' => 'sessions#new'
   post   '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+
 end
