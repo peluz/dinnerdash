@@ -25,10 +25,10 @@
                   </div>
                   <div class="row">
                     <div class="col-md-7">
-                      <p>Quantidade: <%= item[1] %>
+                      <p class="count">Quantidade: <%= item[1] %>
                     </div>
                     <div class="col-md-5">
-                        <%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default btn-sm'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default btn-sm'%>
+                        <%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default btn-sm add-cart-button'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default btn-sm minus-cart-button'%>
                     </div>
                   </div>
                   <div class="row">
@@ -63,7 +63,7 @@
       <h2>Total: R$ <%=  number_with_precision(total, :precision => 2)%></h2>
     </div>
     <div class="col-md-4">
-      <p><%= link_to "Comprar", create_order_path,  class:'btn btn-lg btn-info'%></p>
+      <a class="btn btn-lg btn-info">Comprar</a>
     </div>
   </div>
 </div>
