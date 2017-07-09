@@ -14,22 +14,22 @@
     <div class="col-md-6 col-md-offset-3">
       <%= form_for(@user) do |f| %>
 
-        <%= f.label :username %>
+        <%= f.label :username %> <br>
         <%= f.text_field :username %> <br>
 
-        <%= f.label :email %>
+        <%= f.label :email %> <br>
         <%= f.email_field :email %> <br>
 
-        <%= f.label :password %>
+        <%= f.label :password %> <br>
         <%= f.password_field :password %> <br>
 
-        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.label :password_confirmation, "Confirmation" %> <br>
         <%= f.password_field :password_confirmation %> <br>
           
-        <%= f.label :address %>
+        <%= f.label :address %> <br>
         <%= f.text_field :address %> <br>
 
-        <%= f.label "Admin " %>
+        <%= f.label "Admin " %> <br>
         <%= f.check_box :admin, {}, true, false %> <br>
 
         <%= f.submit "Create my account", class: "btn btn-primary" %>
