@@ -25,10 +25,10 @@
                   </div>
                   <div class="row">
                     <div class="col-md-7">
-                      <p class="count">Quantidade: <%= item[1] %>
+                      <p id='<%= item[0].id %>'>Quantidade: <%= item[1] %>
                     </div>
                     <div class="col-md-5">
-                        <%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default btn-sm add-cart-button'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default btn-sm minus-cart-button'%>
+                        <%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default btn-sm plus-cart-button'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default btn-sm minus-cart-button'%>
                     </div>
                   </div>
                   <div class="row">

@@ -12,7 +12,7 @@ class CartsController < ApplicationController
 		current_cart << {id: params[:item_id], quantity: 1}
 		session[:cart] = merge_cart
 		@cart = session[:cart]
-		render json: @cart.to_json 
+		render json: [@cart, params[:item_id]]  
 	end
 
 	def destroy
@@ -28,7 +28,7 @@ class CartsController < ApplicationController
 			session[:cart] = merge_cart
 			@cart = session[:cart]
 		end
-		render json: @cart.to_json	
+		render json: [@cart, params[:item_id]]  
 	end	
 	private
 
