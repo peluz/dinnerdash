@@ -10,13 +10,17 @@ $(document).ready(function() {
 			success: function(data){
 				var length;
 				var pos;
+				console.log(data);
+				var total = 0;
 				length = data[0].length;
 				for(i=0;i<length;i++){
 					if(data[0][i].id === data[1]){
 						pos = i;
 					}
 				}
-				$('#' + data[1]).html('Quantidade: ' + data[0][pos].quantity);
+				$('.count#' + data[1]).html('Quantidade: ' + data[0][pos].quantity);
+				$('.' + data[1]).html('Subtotal: R$ ' + (data[0][pos].quantity * data[2]).toFixed(2));
+				$('.total').html('Total: R$ ' + (data[3]).toFixed(2));
 			}
 		});
 	});
@@ -39,7 +43,9 @@ $(document).ready(function(){
 						pos = i;
 					}
 				}
-				$('#' + data[1]).html('Quantidade: ' + data[0][pos].quantity);
+				$('.count#' + data[1]).html('Quantidade: ' + data[0][pos].quantity);
+				$('.' + data[1]).html('Subtotal: R$ ' + (data[0][pos].quantity * data[2]).toFixed(2));
+				$('.total').html('Total: R$ ' + (data[3]).toFixed(2));
 			}
 		});
 	});	

@@ -25,7 +25,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-7">
-                      <p id='<%= item[0].id %>'>Quantidade: <%= item[1] %>
+                      <p class="count" id='<%= item[0].id %>'>Quantidade: <%= item[1] %>
                     </div>
                     <div class="col-md-5">
                         <%= link_to "+", add_cart_path(item[0].id), class:'btn btn-default btn-sm plus-cart-button'%><%= link_to "-", minus_cart_path(item[0].id), class:'btn btn-default btn-sm minus-cart-button'%>
@@ -42,9 +42,9 @@
                       <%= link_to 'Remover', destroy_cart_path(item[0].id), class:'btn btn-default btn-sm' %>
                     </div>
                     <div class="col-md-8">
-                        <p>Subtotal: R$ <%= number_with_precision(item[0].price * item[1], :precision => 2) %>
-                          <% total += item[0].price*item[1] %>
+                        <p class='<%= item[0].id %>'>Subtotal: R$ <%= number_with_precision(item[0].price * item[1], :precision => 2) %>
                         </p>
+                        <% total += item[0].price*item[1] %>
                     </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8">
-      <h2>Total: R$ <%=  number_with_precision(total, :precision => 2)%></h2>
+      <h2 class="total">Total: R$ <%=  number_with_precision(total, :precision => 2)%></h2>
     </div>
     <div class="col-md-4">
       <a class="btn btn-lg btn-info">Comprar</a>
