@@ -1,0 +1,9 @@
+<%= form_for @order, :url => { :action => "update" } do |f| %>
+   
+    <%= select_tag(:status, options_for_select([["Pago", "pago"], ["Confirmado", "confirmado"], ["Cancelado", "cancelado"]])) %>
+  
+    <p>
+      <%= f.submit %>
+    </p>
+   
+<% end %>

@@ -1,15 +1,23 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-8"><h1>Detalhes do pedido</h1></div>
+    <div class="col-md-8"><h1>Detalhes do pedido
+	<% if admin? %>
+			de <%= @order.user.email %>
+	<% end %>
+    </h1></div>
     <div class="col-md-4"></div>
   </div>
 </div>
+
 
 <div class="table-responsive">
 	<table class="table">
 		<thead>
 			<th>Item</th>
 			<th>Quantidade</th>
+			<% if admin? %>
+				<th>Preço</th>
+			<% end %>
 			<th>Subtotal</th>
 		</thead>
 		<tbody>
@@ -17,14 +25,31 @@
 				<tr>
 					<td><%= link_to item.title, show_item_path(item) %></td>
 					<td><%= @quantities.find_by(item_id: item.id).quantity %></td>
+					<% if admin? %>
+						<td>R$ <%= print_price(item.price) %></td>
+					<% end %>
 					<td>R$ <%= print_price(item.price * @quantities.find_by(item_id: item.id).quantity) %></td>
 				</tr>
 			<% end %>
 			<tr>
-				<td colspan="2">Total:</td>
+				<% if admin? %>
+					<td colspan="3">Total:</td>
+				<% else %>
+					<td colspan="2">Total:</td>
+				<% end %>
 				<td>R$ <%=print_price(total_price(@order))  %></td>
 			</tr>
 		</tbody>	
 	</table>
 </div>
+
+<% if admin? %>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<%= link_to "Mudar status", edit_order_path(@order), class:'btn btn-default' %>
+			</div>
+		</div>
+	</div>
+<% end %>
 

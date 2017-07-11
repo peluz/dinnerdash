@@ -5,6 +5,9 @@
 <div class="table-responsive">
 	<table class="table">
 		<thead>
+			<% if admin? %>
+				<th>Usuario</th>
+			<% end %>
 			<th>N. do pedido</th>
 			<th>Data do pedido</th>
 			<th>Total</th>
@@ -14,6 +17,9 @@
 		<tbody>
 			<% @orders.each do |order| %>
 				<tr>
+					<% if admin? %>
+						<td><%= order.user.email %></td>
+					<% end %>
 					<td><%= order.id %></td>
 					<td><%= order.created_at %></td>
 					<td>R$ <%= print_price(total_price(order)) %></td>

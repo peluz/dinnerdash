@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :require_login
+	before_action :check_admin, :only => [:new, :edit, :create, :destroy, :update]
 
 	def index
 		if admin?
@@ -25,6 +26,21 @@ class OrdersController < ApplicationController
 
 	end
 
+	def edit
+		@order = Order.find(params[:order_id])
+		
+	end
+
+	def update
+  		@order = Order.find(params[:order_id])
+ 
+  		if @order.update(status: params[:status])
+    		redirect_to orders_path
+ 		 else
+ 	   		render 'edit'
+  		end
+	end
+
 	private
 
 	def populate_order(order)
@@ -34,9 +50,10 @@ class OrdersController < ApplicationController
 	end
 
 	def require_login
-    unless logged_in?
-      redirect_to new_user_path
+        redirect_to new_user_path unless logged_in?
     end
-  end
 
+    def check_admin
+  	  	redirect_to orders_path unless admin?
+  	end	
 end

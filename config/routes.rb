@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   get '/buy' => 'orders#create', as: :create_order
   get '/orders' => 'orders#index', as: :orders
   get '/orders/:order_id' => 'orders#show', as: :show_order
+  get '/orders/:order_id/edit' => 'orders#edit', as: :edit_order
+  patch 'orders/:order_id' => 'orders#update'
 end
