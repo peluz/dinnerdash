@@ -17,5 +17,9 @@ class ItemsController < ApplicationController
   end
   def new
   	@item = Item.new
-  end	
+  end
+  private 
+  	def item_params
+  		params.require(:item).permit(:title, :description, :price)
+  	end		
 end
