@@ -2,8 +2,12 @@ class OrdersController < ApplicationController
 	before_action :require_login
 
 	def index
-		@user = current_user
-		@orders = @user.orders
+		if admin?
+			@orders = Order.all
+		else
+			@user = current_user
+			@orders = @user.orders
+		end
 	end
 
 	def show
