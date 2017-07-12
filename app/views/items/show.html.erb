@@ -1,11 +1,26 @@
-<div class="container">
-	<div class="row">
-		<div class="text-center">		
-			<h1>Editar item</h1>
-			 
-			<%= render 'form' %>
-			 
-			<%= link_to 'Voltar', {action: "index", controler: "item"}, class:'btn btn-deafault'%>
-		</div>	
-	</div>		
-</div>			
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8"><h1>Detalhes do item</h1></div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<th>Nome</th>
+			<th>Descrição</th>
+			<th>Preço</th>
+		</thead>                                 
+		<tbody>
+			<tr>
+				<td><%= @item.title %></td>
+				<td><%= @item.description %></td>
+				<td>$ <%= print_price(@item.price) %></td>
+			</tr>
+		</tbody>	
+	</table>
+	<br>
+	<%=link_to "editar item", edit_item_path(@item), class:'btn btn-default' %>
+</div>
+

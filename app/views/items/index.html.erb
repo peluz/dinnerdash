@@ -9,7 +9,7 @@
           <div class="col-md-3">
             <%= render item %>
             <% if admin?%>
-              <%=link_to "editar o item", edit_item1_path(item[:id]), class:'btn btn-default' %>
+              <%=link_to "mostrar item", edit_item1_path(item[:id]), class:'btn btn-default' %>
             <% end %>
           </div>
         <% end %>
