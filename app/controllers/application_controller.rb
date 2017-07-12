@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
   	  	redirect_to orders_path unless admin?
   end	
 
+  @@total = 0
 end
