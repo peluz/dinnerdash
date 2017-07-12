@@ -8,7 +8,21 @@
       <p>How are you today?</p>
       <% if admin? %>
       	<p>Você é um admin, parabéns!</p>
-        <p>Como admin, tens uma s</p>
+        <p>Como admin, podes:</p>
+        <ul>
+          <li>
+            <%= link_to "Ver todos os pedidos", orders_path%>
+          </li>
+          <li>
+            <%= link_to "Criar items", new_item_path%>
+          </li>
+          <li>
+            <%= link_to "Criar categoria", new_category_path%>
+          </li>
+          <li>
+            Além de poder modificar items, associar items a categorias e alterar status de pedidos!
+          </li>
+        </ul>
       <% else %>
       	<p>Você não é um admin, booo!!</p>
       <% end %>
