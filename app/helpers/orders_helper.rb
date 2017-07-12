@@ -12,4 +12,8 @@ module OrdersHelper
  		end
  		return total
  	end
+
+ 	def pretty_time(time)
+ 		time.strftime("%d/%m/%Y") + time.strftime(' às %H:%M:%S')
+ 	end
 end
