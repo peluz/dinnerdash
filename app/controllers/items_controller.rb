@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :check_admin, :only => [:edit, :remove, :update, :create, :new, :add]
+
+  before_action :check_admin, :only => [:edit, :update, :create, :new, :add]
+
   def index
   	@items = Item.where(hidden: nil)
   end
@@ -42,14 +44,9 @@ class ItemsController < ApplicationController
     redirect_to categories_path  
   end
 
-  def remove
-    @item = Item.find(params[:id])
-    @item.update(hidden: true)
-    redirect_to items_path
-  end
 
   private 
   	def item_params
-  		params.require(:item).permit(:title, :description, :price)
+  		params.require(:item).permit(:title, :description, :price, :hidden)
   	end		
 end
