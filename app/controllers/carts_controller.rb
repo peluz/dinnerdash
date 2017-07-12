@@ -48,5 +48,4 @@ class CartsController < ApplicationController
 				{:id => k, :quantity => v.map { |h2| h2[:quantity]}.sum}
 			end		
 		end
-		@@total = 0
 end
