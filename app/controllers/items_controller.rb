@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :check_admin, :only => [:edit, :remove, :update, :create, :new]
+  before_action :check_admin, :only => [:edit, :remove, :update, :create, :new, :add]
   def index
   	@items = Item.where(hidden: nil)
   end
