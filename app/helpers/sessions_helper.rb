@@ -13,7 +13,7 @@ module SessionsHelper
  	end
 
  	def admin?
- 		if @current_user == nil
+ 		if !logged_in?
  			return false
  		else
 	 		@current_user = current_user
