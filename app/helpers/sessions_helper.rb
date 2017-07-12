@@ -13,8 +13,12 @@ module SessionsHelper
  	end
 
  	def admin?
- 		@current_user = current_user
- 		@current_user[:admin]
+ 		if @current_user == nil
+ 			return false
+ 		else
+	 		@current_user = current_user
+	 		@current_user[:admin]
+	 	end
  	end
 
  	def log_out
