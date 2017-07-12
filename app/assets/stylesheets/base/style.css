@@ -1,3 +1,27 @@
 #header {
 background-color: lightblue;
 background-size: cover;}
+
+.status {
+	color: white;
+	font-weight: bold;
+	width: 120px;
+	border-radius: 25px;
+	text-align: center;
+}
+
+.em-andamento {
+	background-color: blue;
+}
+
+.confirmado {
+	background-color: green;
+}
+
+.cancelado {
+	background-color: red;
+}
+
+.pago{
+	background-color: orange;
+}
