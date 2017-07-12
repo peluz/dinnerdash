@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   	session[:cart].map! {|x| x.symbolize_keys!}
   end
 
+  def check_admin
+  	  	redirect_to orders_path unless admin?
+  end	
+
 end

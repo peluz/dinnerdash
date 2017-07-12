@@ -52,8 +52,4 @@ class OrdersController < ApplicationController
 	def require_login
         redirect_to new_user_path unless logged_in?
     end
-
-    def check_admin
-  	  	redirect_to orders_path unless admin?
-  	end	
 end
