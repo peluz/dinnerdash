@@ -21,10 +21,11 @@
 		</tbody>	
 	</table>
 	<br>
-	<%=link_to "Editar item", edit_item_path(@item), class:'btn btn-warning' %>
-	<% @categories.each do |category| %>
-		<%=link_to "Associar a #{category.title}", add_category_path(@item.id, category.id), class:'btn btn-success' %>
-   
-<% end %>
+	<% if admin? %>
+		<%=link_to "Editar item", edit_item_path(@item), class:'btn btn-warning' %>
+		<% @categories.each do |category| %>
+			<%=link_to "Associar a #{category.title}", add_category_path(@item.id, category.id), class:'btn btn-success' %>   
+		<% end %>
+	<% end %>
 </div>
 
