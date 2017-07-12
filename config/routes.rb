@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :users
   root 'welcome#index'
   get 'items/:item_id' => 'items#show', as: :show_item
+  get 'items/:item_id' => 'items#edit', as: :edit_item1
+  get 'items' => 'items#new', as: :new_item1 
   get 'carts/add/:item_id' => 'carts#add', as: :add_cart
   get 'carts/destroy/:item_id' => 'carts#destroy', as: :destroy_cart
   get 'carts/index' => 'carts#index', as: :carts_path

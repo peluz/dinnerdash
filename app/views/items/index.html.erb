@@ -8,6 +8,9 @@
         <% itemrow.each do |item| %>
           <div class="col-md-3">
             <%= render item %>
+            <% if admin?%>
+              <%=link_to "editar o item", edit_item1_path(item[:id]), class:'btn btn-default' %>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -19,7 +22,7 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
       <% if admin? %>
-        <%= link_to "adiconar novo item", {action: "new", controler: "item"}, class:'btn btn-default' %>
+        <%= link_to "adiconar novo item", new_item_path, class:'btn btn-default' %>
       <% end %>   
       <%= link_to "De volta para categorias", {controller: 'categories'}, class:'btn btn-default'%>
     <div class="col-md-4"></div>
