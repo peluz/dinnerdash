@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711230928) do
+ActiveRecord::Schema.define(version: 20170712143313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170711230928) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories_items", id: :bigint, default: nil, force: :cascade do |t|
+  create_table "categories_items", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "item_id", null: false
   end
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170711230928) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "hidden"
   end
 
   create_table "orderitems", force: :cascade do |t|

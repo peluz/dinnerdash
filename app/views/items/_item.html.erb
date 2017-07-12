@@ -9,8 +9,9 @@
   </div>
   <div class="panel-footer">
     <p><%= link_to '+ Adicionar ao carrinho', add_cart_path(item), class:'card-link add-cart-button'%></p>
-    <% if admin?%>
-      <%=link_to "mostrar item", edit_item1_path(item[:id]), class:'btn btn-warning' %>
+    <% if admin? %>
+      <%=link_to "Mostrar item", show_item_path(item[:id]), class:'btn btn-warning' %>
+      <%=link_to "Remover item do menu", remove_item_path(item[:id]), class:'btn btn-danger' %>
     <% end %>
   </div>
 </div>

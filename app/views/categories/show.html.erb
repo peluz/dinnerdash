@@ -3,7 +3,7 @@
 </div>
 
 <div class="container-fluid">
-    <% @category.items.each_slice(4).to_a.each do |itemrow| %>
+    <% @items.each_slice(4).to_a.each do |itemrow| %>
     	<div class="row">
     		<% itemrow.each do |item| %>
     			<div class="col-md-3">

@@ -25,3 +25,13 @@ background-size: cover;}
 .pago{
 	background-color: orange;
 }
+
+.removed {
+	color: white;
+	font-weight: bold;
+	width: 300px;
+	border-radius: 25px;
+	text-align: center;
+	background-color: red;
+	margin: 10px;
+}

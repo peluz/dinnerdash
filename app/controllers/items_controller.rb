@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :check_admin, :only => [:edit, :destroy, :update, :create, :new]
+  before_action :check_admin, :only => [:edit, :remove, :update, :create, :new]
   def index
-  	@items = Item.all	
+  	@items = Item.where(hidden: nil)
   end
 
   def show
@@ -40,6 +40,12 @@ class ItemsController < ApplicationController
     @category = Category.find(params[:category_id])
     @item.categories << @category
     redirect_to categories_path  
+  end
+
+  def remove
+    @item = Item.find(params[:id])
+    @item.update(hidden: true)
+    redirect_to items_path
   end
 
   private 

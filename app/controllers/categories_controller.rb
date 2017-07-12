@@ -6,7 +6,9 @@ class CategoriesController < ApplicationController
 
   def show
 	@category = Category.find(params[:id])
+  @items = @category.items.where(hidden: nil)
   end
+
   def create
   	@categories = Category.new(categories_params)
   	if @categories.save
@@ -15,9 +17,11 @@ class CategoriesController < ApplicationController
   		render 'new'
   	end		
   end
+
   def new
   	@categories = Category.new
   end
+
   private
   	def categories_params
   		params.require(:category).permit(:title)
