@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   get '/orders/:order_id' => 'orders#show', as: :show_order
   get '/orders/:order_id/edit' => 'orders#edit', as: :edit_order
   patch 'orders/:order_id' => 'orders#update'
+  get 'items/:item_id/add/:category_id' => 'items#add', as: :add_category
 end

@@ -17,9 +17,9 @@
             <p><%= link_to category.title, category_path(category), class:'btn btn-default'%></p>
         <% end %>
       <p><%= link_to "Todas as opções", {controller: 'items'}, class:'btn btn-default'%></p>
-    </div>
-    <% if admin? %>
-      <%= link_to"nova categoria", {action: "new", controller: "categories"}, class:'btn btn-default' %>
+     <% if admin? %>
+      <%= link_to"Nova categoria", {action: "new", controller: "categories"}, class:'btn btn-warning' %>
     <% end %>
+    </div>
     <div class="col-md-4"></div>
 <div>

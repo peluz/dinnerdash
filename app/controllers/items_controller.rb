@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :check_admin, :only => [:edit, :destroy, :update, :create, :new]
+  before_action :check_admin, :only => [:edit, :destroy, :update, :create, :new, :show]
   def index
   	@items = Item.all	
   end
 
   def show
   	@item = Item.find(params[:id])
+    @categories = Category.all
   end
 
   def create
@@ -16,12 +17,15 @@ class ItemsController < ApplicationController
   		render 'new'
   	end		
   end
+
   def new
   	@item = Item.new
   end
+
   def edit
   	@item = Item.find(params[:id])
   end
+
   def update
   		@item = Item.find(params[:id])
  		if @item.update(item_params)
@@ -30,6 +34,14 @@ class ItemsController < ApplicationController
     		render 'edit'
   		end
 	end	
+
+  def add
+    @item = Item.find(params[:item_id])
+    @category = Category.find(params[:category_id])
+    @item.categories << @category
+    redirect_to categories_path  
+  end
+
   private 
   	def item_params
   		params.require(:item).permit(:title, :description, :price)
