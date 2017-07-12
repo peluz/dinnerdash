@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    current_cart.clear
     log_out
     redirect_to root_url
   end
