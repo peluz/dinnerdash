@@ -19,11 +19,14 @@ class OrdersController < ApplicationController
 
 	def create
 		@user = current_user
-		@order = Order.create(status: "em andamento", user_id: @user[:id])
-		populate_order(@order)
-		current_cart.clear
-		redirect_to orders_path
-
+		if current_cart.empty?
+			redirect_to items_path
+		else
+			@order = Order.create(status: "em andamento", user_id: @user[:id])
+			populate_order(@order)
+			current_cart.clear
+			redirect_to orders_path
+		end
 	end
 
 	def edit
