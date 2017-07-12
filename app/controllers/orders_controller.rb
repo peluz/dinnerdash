@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :require_login
-	before_action :check_admin, :only => [:new, :edit, :create, :destroy, :update]
+	before_action :check_admin, :only => [:edit, :destroy, :update]
 
 	def index
 		if admin?
