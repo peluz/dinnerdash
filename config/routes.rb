@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/buy' => 'orders#create', as: :create_order
   get '/orders' => 'orders#index', as: :orders
-  get '/orders/:status' => 'orders#index_by_status', as: :status
+  get '/orders/filter/:status' => 'orders#index_by_status', as: :status
   get '/orders/:order_id' => 'orders#show', as: :show_order
   get '/orders/:order_id/edit' => 'orders#edit', as: :edit_order
   patch 'orders/:order_id' => 'orders#update'
