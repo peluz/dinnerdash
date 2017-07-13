@@ -18,7 +18,7 @@
 			<% @orders.each do |order| %>
 				<tr>
 					<% if admin? %>
-						<td><%= order.user.email %></td>
+						<td><%= order.user.username %></td>
 					<% end %>
 					<td><%= order.id %></td>
 					<td><%= pretty_time order.created_at %></td>
