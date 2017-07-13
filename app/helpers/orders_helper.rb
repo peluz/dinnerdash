@@ -16,4 +16,8 @@ module OrdersHelper
  	def pretty_time(time)
  		time.strftime("%d/%m/%Y") + time.strftime(' às %H:%M:%S')
  	end
+
+ 	def total_orders(status)
+ 		Order.where(status: status).count
+ 	end
 end

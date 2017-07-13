@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :require_login
-	before_action :check_admin, :only => [:edit, :destroy, :update]
+	before_action :check_admin, :only => [:edit, :destroy, :update, :index_by_status]
 
 	def index
 		if admin?
@@ -9,6 +9,11 @@ class OrdersController < ApplicationController
 			@user = current_user
 			@orders = @user.orders
 		end
+	end
+
+	def index_by_status
+		@orders = Order.where(status: params[:status])
+		render 'index'
 	end
 
 	def show
